@@ -1,5 +1,5 @@
 # Autonomous Vehicle Dashboard | Human Computer Interaction
-[Sep 2024 - Noc 2024]
+[Sep 2024 - Nov 2024]
 
 ## Brief Description
 A user-centered dashboard prototype for autonomous vehicles, designed to improve safety, navigation, and user trust by integrating real-time updates, vehicle health monitoring, and adaptive driving assistance.
