@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/entertainment_options.css">
+    <link rel="stylesheet" href="../static/css/entertainment_radio.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container d-flex justify-content-center">
+            <a class="nav-link" href="../pages/dashboard2.html"><i class="fa-solid fa-house" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/entertainment_options.html"><i class="fa-brands fa-spotify" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/car_health.html"><i class="fa-solid fa-heart-pulse" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/live_traffic.html"><i class="fa-solid fa-traffic-light" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/safety_and_emergency_services.html"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/personalisation.html"><i class="fa-solid fa-sliders" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/help.html"><i class="fa-solid fa-circle-question" style="color: #000000;"></i></a>
+        </div>
+    </nav>
+    
+    <div class="page-header">
+        <i class="fa-solid fa-arrow-left-long fa-3x" onclick="window.history.back()"></i>
+        <div class="page-title" id="header-title">Radio</div>
+    </div>
+
+    <div class="entertainment-group entertainment-specific" id="entertainment_radio">
+        <div class="content-wrapper">
+            <div class="station-section">
+                <div class="station-buttons">
+                    <button class="station-button current" id="station-987FM" data-station="987FMAAC">
+                        <img src="../images/entertainment_options/radio/987-logo.png" alt="987 FM">
+                        <span>987 FM</span>
+                    </button>
+                    <button class="station-button" id="station-class95" data-station="CLASS95AAC">
+                        <img src="../images/entertainment_options/radio/class-95-logo.png" alt="Class 95">
+                        <span>Class 95</span>
+                    </button>
+                    <button class="station-button" id="station-love972" data-station="LOVE972FMAAC">
+                        <img src="../images/entertainment_options/radio/love-972-logo.png" alt="Love 972">
+                        <span>Love 972</span>
+                    </button>
+                </div>
+            </div>
+            <div class="radio-section">
+                <h2 class="current-station" id="current-station">987 FM</h2>
+                <div class="sound-wave paused" id="audio-wave">
+                    <div class="bar"></div>
+                </div>
+                <div class="playback-group">
+                    <div class="playback-controls">
+                        <i class="fas fa-play" id="play-pause"></i>
+                    </div>                
+                    <div class="volume-control">
+                        <i class="fas fa-volume-mute"></i>
+                        <input type="range" id="volume-control" min="0" max="100">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                </div>
+                <div class="radio-player" id="radio-player">
+                    <audio id="audio-player" src=""></audio>
+                    <i class="fas fa-music music-icon"></i>
+                    <span class="radio-song" id="now-playing">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <script src="../static/js/dark_light_mode_toggle.js"></script>
+
+    <script src="../static/js/radio.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+body {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.traffic-updates {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    padding: 0 !important; 
+    margin: 0 0 100px 0;
+    overflow-y: auto;
+}
+
+#main-map {
+    margin: 24px 0;
+    width: 100%;
+}
+
+#main-map img {
+    width: 100%;
+    height: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.col-4, .col-8 {
+    height: 100%;
+    padding-bottom: 32px;
+}
+
+.col-10 {
+    padding-bottom: 16px;
+}
+
+.col-12 {
+    padding: 0;
+}
+
+body.dark-mode .form-check-label{
+    color: white;
+}
+
+body.light-mode .form-check-label{
+    color: black;
+}
+
+body.dark-mode #traffic-updates-description{
+    color: var(--color-off-white);
+}
+
+body.light-mode #traffic-updates-description{
+    color: var(--color-off-black);
+}
+
+#roadList .list-group-item {
+    background-color: #3e3f41 !important; 
+    border-bottom: none;
+    margin-bottom: 0 !important; 
+    color: white !important; 
+    padding: 10px 15px !important;
+}
+
+#roadList .list-group-item:hover {
+    background-color: #37383c!important;
+}
+
+#roadList .list-group-item.active {
+    border-top: none;
+    border-bottom: none;
+}
+
+body.light-mode h3{
+    color: var(--color-black) !important; 
+}
+
+body.light-mode h4{
+    color: var(--color-black) !important; 
+}
+
+body.light-mode #roadList .list-group-item.active{
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important; 
+}
+
+.tab-content{
+    color: var(--color-white);
+}
+
+#roadList .list-group-item:first-child{
+    border-radius: 8px 8px 0 0;
+}
+
+#roadList .list-group-item:last-child{
+    border-bottom: 1px solid var(--color-off-black) !important;
+    border-radius: 0 0 8px 8px;
+}
+
+#roadList .list-group-item:first-child.active {
+    border-top: 1px solid var(--color-off-black) !important;
+}
+
+#roadList .list-group-item.active:last-child:hover{
+    border-top: none;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}

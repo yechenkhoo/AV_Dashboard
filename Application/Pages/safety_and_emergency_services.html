@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety and Emergency Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/safety_and_emergency_services.css">
+    <link rel="stylesheet" href="../static/css/call_service.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container d-flex justify-content-center">
+            <a class="nav-link" href="../pages/dashboard2.html"><i class="fa-solid fa-house" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/entertainment_options.html"><i class="fa-brands fa-spotify" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/car_health.html"><i class="fa-solid fa-heart-pulse" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/live_traffic.html"><i class="fa-solid fa-traffic-light" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/safety_and_emergency_services.html"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/personalisation.html"><i class="fa-solid fa-sliders" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/help.html"><i class="fa-solid fa-circle-question" style="color: #000000;"></i></a>
+        </div>
+    </nav>
+    
+    <div class="page-header">
+        <i class="fa-solid fa-arrow-left-long fa-3x" onclick="window.history.back()"></i>
+        <div class="page-title" id="header-title">Safety & emergency</div>
+    </div>
+
+    <div id="emergency-services">
+        <div class="subheading subheading-emergency">Emergency Services</div>
+        <div class="cards-container">
+            <div class="card" onclick="showCallService('Ambulance')">
+                <i class="fa-solid fa-truck-medical fa-3x"></i>
+                <div class="card-header">Ambulance</div>
+            </div>
+            <div class="card" onclick="showCallService('Police')">
+                <i class="fa-solid fa-user-shield fa-3x"></i>
+                <div class="card-header">Police</div>
+            </div>
+            <div class="card" onclick="showCallService('Car Repair')">
+                <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
+                <div class="card-header">Car Repair</div>
+            </div>
+            <div class="card" onclick="location.href='./emergency_contacts.html'">
+                <i class="fa-solid fa-users fa-3x"></i>
+                <div class="card-header">Emergency Contacts</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="safety-alerts">
+        <div class="subheading subheading-safety-alerts">Safety Alerts</div>
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-car"></i>
+            Put on your safety belt.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+            </button>
+        </div>
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-road"></i>
+            Road works ahead.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+            </button>
+        </div>
+
+        <div class="alert alert-warning alert-dismissible fade show expandable" role="alert" onclick="expandAlert(this)">
+            <i class="fa-solid fa-gas-pump"></i> Refill the petrol / battery.
+            <div class="alert-details">Nearest stations: Station A (2 miles), Station B (5 miles).</div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+            </button>
+        </div>
+        
+        <div id="no-alerts-message" style="display: none;">
+            All clear, no current safety alerts.
+        </div>
+    </div>
+
+    <div id="call-service" style="display: none;">
+        <div class="call-heading" id="call-heading">Service</div>
+        <div class="calling-status">Calling...</div>
+        
+        <div class="call-icon-container">
+            <div class="call-icon icon-mute" aria-label="Mute" title="Mute" onclick="toggleMute()">
+                <i id="microphone-icon" class="fa-solid fa-microphone fa-2x"></i>
+            </div> 
+            <div class="call-icon icon-end-call" aria-label="End Call" title="End Call" onclick="endCall()">
+                <i class="fa-solid fa-phone fa-2x" style="transform: rotate(135deg);"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/dark_light_mode_toggle.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../static/js/safety_and_emergency_services.js"></script>
+</body>
+</html>

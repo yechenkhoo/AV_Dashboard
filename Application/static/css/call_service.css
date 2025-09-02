@@ -1,0 +1,147 @@
+body.dark-mode #call-service {
+    width: inherit;
+    height: calc(100vh - 80px) !important;
+    display: flex; justify-content: center; align-items: center; background-color: var(--color-base-bg); color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.light-mode #call-service {
+    width: inherit;
+    height: calc(100vh - 80px) !important;
+    display: flex; justify-content: center; align-items: center; background-color: var(--color-white); color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.dark-mode .call-heading {
+    color: var(--color-white);
+}
+
+body.light-mode .call-heading {
+    color: var(--color-black);
+}
+
+.call-heading {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.calling-status {
+    font-size: 18px;
+    margin-bottom: 20px;
+    animation: blink 1s infinite;
+}
+
+body.dark-mode .calling-status {
+    color: var(--color-white);
+}
+
+body.light-mode .calling-status {
+    color: var(--color-black);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.call-icon-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+}
+
+.call-icon{
+    width: 88px;
+    height: 88px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .icon-mute {
+    color: var(--color-base-bg);
+    background-color: var(--color-white);
+}
+
+body.dark-mode .icon-mute:hover {
+    background-color: var(--color-off-white);
+}
+
+body.light-mode .icon-mute {
+    color: black;
+    background-color: #a4a4a4;
+}
+
+body.light-mode .icon-mute:hover {
+    background-color: #848484;
+}
+
+.icon-end-call {
+    background-color: var(--color-red);
+    color: var(color-white);
+}
+
+.icon-end-call:hover {
+    background-color: #b12231;
+}
+
+#participants {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.participant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-white);
+}
+
+.participant-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #a4a4a4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    color: var(--color-white);
+    animation: ring 1.5s infinite ease-in-out;
+}
+
+/* Ring Animation */
+@keyframes ring {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.label {
+    font-size: 14px;
+    margin-top: 8px;
+    color: var(--color-off-white);
+}

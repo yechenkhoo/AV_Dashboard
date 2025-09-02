@@ -1,0 +1,159 @@
+h2 {
+    margin-bottom: 24px;
+}
+
+.carhealth {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: none; 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.dark-mode .carhealth {
+    color: var(--color-white);
+}
+
+body.light-mode .carhealth {
+    color: var(--color-black);
+}
+
+.carhealth img{width: 48%;margin-top: 24px;}
+
+.cards-container {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.card {
+    flex: 1 1 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    min-width: 0;
+    max-width: 300px;
+}
+
+body.dark-mode .card i {
+    color: var(--color-white); 
+    margin-right: 12px;
+}
+
+body.light-mode .card i {
+    color: var(--color-black); 
+    margin-right: 12px;
+}
+
+.card:nth-child(4){
+    margin-right: 0;
+}
+
+body.dark-mode .card-header,
+body.dark-mode .card-text p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px 0;
+    color: var(--color-off-white);
+}
+
+body.dark-mode .card-header {
+    font-size: 20px;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+}
+
+body.light-mode .card-header,
+body.light-mode .card-text p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px 0;
+    color: var(--color-off-white);
+}
+
+body.light-mode .card-header {
+    background-color: #fff;
+    font-size: 20px;
+    color: var(--color-black);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+}
+
+body.dark-mode .status {
+    background-color: rgba(56, 142, 60, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+body.light-mode .status {
+    background-color: rgba(56, 142, 60, 0.65);
+    color: white;
+    border: 1px solid rgba(76, 175, 80, 0.8);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+body.dark-mode .card .details {
+    font-size: 14px;
+    color: #cbc9c9;
+    margin-top: 4px;
+}
+
+body.light-mode .card .details {
+    font-size: 14px;
+    color: var(--color-off-black);
+    margin-top: 4px;
+}
+
+.car-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center both images horizontally */
+    gap: 16px; /* Add spacing between the images */
+}
+
+.car-model-container{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+
+
+.car-top-view {
+    border-radius: 8px;
+    width: calc((100% - 48px) / 4) !important; /* Ensure the width is applied */
+    height: auto !important; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within its container */
+    display: block; /* Reset any inherited inline styles */
+}
+
+.car-model {
+    width: 890px !important; /* Explicitly set width with priority */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the set width */
+    max-width: 100%; /* Ensure it does not exceed the container width */
+    display: block; /* Reset any inline styles */
+}
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/entertainment_options.css">
+    <link rel="stylesheet" href="../static/css/entertainment_spotify.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container d-flex justify-content-center">
+            <a class="nav-link" href="../pages/dashboard2.html"><i class="fa-solid fa-house" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/entertainment_options.html"><i class="fa-brands fa-spotify" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/car_health.html"><i class="fa-solid fa-heart-pulse" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/live_traffic.html"><i class="fa-solid fa-traffic-light" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/safety_and_emergency_services.html"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/personalisation.html"><i class="fa-solid fa-sliders" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/help.html"><i class="fa-solid fa-circle-question" style="color: #000000;"></i></a>
+        </div>
+    </nav>
+    
+    <div class="page-header">
+        <i class="fa-solid fa-arrow-left-long fa-3x" onclick="window.history.back()"></i>
+        <div class="page-title" id="header-title">Spotify</div>
+    </div>
+
+    <div class="entertainment-group entertainment-specific" id="entertainment_spotify">
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <!-- <i class="fas fa-chevron-left"></i> -->
+                    <span>Your Library</span>
+                </div>
+                <!-- <input type="text" class="sidebar-search" placeholder="Search"> -->
+                <div class="sidebar-playlists">
+                    <div class="playlist-item">
+                        <img src="../static/songs/song_covers/playlist-cover.png" alt="Car Playlist">
+                        <span>Car Playlist</span>
+                    </div>
+                    <!-- More playlist items -->
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <header class="main-header">
+                    <!-- <i class="fas fa-home"></i> -->
+                    <input type="text" class="search-bar" id="song-search" placeholder="What do you want to play?">
+                    <!-- <div class="user-icons"> -->
+                        <!-- <i class="fas fa-bell"></i> -->
+                        <!-- <i class="fas fa-users"></i> -->
+                        <!-- <img src="../images/entertainment_options/spotify/spotify-profile.jpg" alt="User Icon" class="user-icon"> -->
+                    <!-- </div> -->
+                </header>
+                
+                <section class="playlist-section">
+                    <div class="playlist-container">
+                        <div class="playlist-header">
+                            <div class="playlist-cover">
+                                <!-- Playlist cover grid -->
+                                <div class="cover-grid">
+                                    <img src="../static/songs/song_covers/crazy-cover.jpg" alt="CRAZY">
+                                    <img src="../static/songs/song_covers/eta-cover.jpg" alt="ETA">
+                                    <img src="../static/songs/song_covers/rocketeer-cover.jpg" alt="Rocketeer">
+                                    <img src="../static/songs/song_covers/fein-cover.jpg" alt="FEIN">
+                                </div>
+                            </div>
+                            <div class="playlist-info">
+                                <p>Public Playlist</p>
+                                <h1><b>Car Playlist</b></h1>
+                                <p><span>bob</span> and <span>joe</span> • 1 save • <span id="playlist-size">6</span> songs, <span id="playlist-time">3 hr 39 min</span></p>
+                            </div>
+                        </div>
+
+                        <div class="song-list">
+                            <div class="song-header">
+                                <span>#</span>
+                                <span>Title</span>
+                                <span>Artist</span>
+                                <span>Album</span>
+                                <span>Time</span>
+                            </div>
+                            <div class="songs" id="songs">
+                                <!-- Songs will be added dynamically here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>                
+            </div>
+        </div>
+
+        <!-- Now Playing Bar -->
+        <div class="footer now-playing-bar">
+            <div class="track-info">
+                <img id="album-art" src="https://via.placeholder.com/50" alt="Album Art">
+                <div class="track-text" id="track-text">
+                    <span class="track-title" id="track-title">Track Name</span>
+                    <span class="track-artist" id="track-artist">Artist Name</span>
+                </div>
+            </div>
+            <div class="playback-group">
+                <div class="playback-controls">
+                    <i class="fas fa-step-backward" id="prev"></i>
+                    <i class="fas fa-play-circle" id="play-pause"></i>
+                    <i class="fas fa-step-forward" id="next"></i>
+                </div>
+                <div class="timer-controls">
+                    <span id="current-time">0:00</span>
+                    <div class="seek-bar-container">
+                        <div class="seek-bar-track">
+                            <div class="seek-bar-progress"></div>
+                        </div>
+                    </div>
+                    <span id="total-time">0:00</span>
+                </div>
+                
+            </div>
+            <div class="volume-control">
+                <i class="fas fa-volume-mute"></i>
+                <input type="range" id="volume-control" min="0" max="100">
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <audio id="audio-player" src=""></audio>
+        </div>
+    </div>
+
+    <script src="../static/js/dark_light_mode_toggle.js"></script>
+
+    <script src="../static/js/spotify.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+.no-padding  {
+    padding: 0 !important;
+}
+
+body {
+    color: #fff;
+}
+
+.entertainment-specific {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.entertainment-specific .container {
+    max-width: none;
+}
+
+.entertainment-specific::-webkit-scrollbar, .playlist-container::-webkit-scrollbar {
+    width: 0.7em;
+}
+
+.entertainment-specific::-webkit-scrollbar-track, .playlist-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+   
+.entertainment-specific::-webkit-scrollbar-thumb, .playlist-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #b6b5b5;
+    cursor: pointer;
+}
+
+.entertainment-specific .content-wrapper {
+    margin-top: 0;
+}
+
+.entertainment-group {
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.807vw;
+    padding: 1.807vw;
+    margin-top: 1vw;
+}
+
+
+.content-wrapper .item {
+    width: 22%;
+    height: 18.338vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    text-align: center;
+    padding: 1.355vw;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 8vw;
+}
+
+.content-wrapper .item:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+.content-wrapper .item i {
+    font-size: 6.252vw;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.content-wrapper .item img, .content-wrapper .item svg {
+    width: 6.252vw;
+    height: 6.252vw;
+    margin-bottom: 0.903vw;
+    fill: var(--color-off-white);
+}
+
+body.dark-mode .content-wrapper .item p {
+    font-size: 1.465vw;
+    margin: 0;
+    font-weight: bold;
+    color: var(--color-off-white);
+}
+
+body.light-mode .content-wrapper .item p {
+    font-size: 1.465vw;
+    margin: 0;
+    font-weight: bold;
+    color: var(--color-off-black);
+}
+
+.item-spotify i::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: black;
+    z-index: -1;
+}
+
+#spotifyicon:after {
+    content: "\f1bc";
+}
+
+/* Specific colors for each icon */
+.item-youtube i { color: #FF0000; }
+.item-spotify i { color: #25D865; }
+.item-saved-videos i { color: #4078d1; }

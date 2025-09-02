@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contacts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/emergency_contacts.css">
+    <link rel="stylesheet" href="../static/css/call_service.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container d-flex justify-content-center">
+            <a class="nav-link" href="../pages/dashboard2.html"><i class="fa-solid fa-house" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/entertainment_options.html"><i class="fa-brands fa-spotify" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/car_health.html"><i class="fa-solid fa-heart-pulse" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/live_traffic.html"><i class="fa-solid fa-traffic-light" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/safety_and_emergency_services.html"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/personalisation.html"><i class="fa-solid fa-sliders" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/help.html"><i class="fa-solid fa-circle-question" style="color: #000000;"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <i class="fa-solid fa-arrow-left-long fa-3x" onclick="window.history.back()"></i>
+        <div class="page-title" id="header-title">Emergency Contacts</div>
+    </div>
+
+    <div id="emergency-contacts">
+        <div id="successful-update-alert" class="alert alert-success alert-dismissible fade d-none" role="alert">
+            <i class="fa-solid fa-circle-check"></i> Emergency contact details updated.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="fas fa-times"></i></span>
+            </button>
+        </div>
+
+        <div class="row">
+            <div id="group-call-col" class="col">
+                <div id="group-call-container">
+                    <div class="group-call" onclick="groupCall()">
+                        <i class="fas fa-hand-pointer fa-3x"></i>
+                    </div>
+                    <p id="group-call-text">Tap to start group call</p>
+                </div>
+            </div>
+            <div id="emergency-contacts-col" class="col">
+                <div class="subheading subheading-emergency">Emergency Contacts</div>
+                <div class="card">
+                    <div class="card-info-details" data-contact-id="1" data-contact-name="Dad" data-contact-phone="88120944" data-contact-relationship="Parent">
+                        <div class="card-header">Dad</div>
+                        <div class="card-desc">88120944</div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="icon-container">
+                            <button class="icon-button call-button" aria-label="Call" title="Call" onclick="showCallService('Dad', '1')">
+                                <i class="fa-solid fa-phone fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="icon-container">
+                            <button class="icon-button edit-button" aria-label="Edit" title="Edit" data-contact-id="1">
+                                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-info-details" data-contact-id="2" data-contact-name="Mum" data-contact-phone="80019727" data-contact-relationship="Parent">
+                        <div class="card-header">Mum</div>
+                        <div class="card-desc">80019727</div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="icon-container">
+                            <button class="icon-button call-button" aria-label="Call" title="Call" onclick="showCallService('Mum', '2')">
+                                <i class="fa-solid fa-phone fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="icon-container">
+                            <button class="icon-button edit-button" aria-label="Edit" title="Edit" data-contact-id="2">
+                                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-info-details" data-contact-id="3" data-contact-name="Raphael" data-contact-phone="91158860" data-contact-relationship="Sibling">
+                        <div class="card-header">Raphael</div>
+                        <div class="card-desc">91158860</div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="icon-container">
+                            <button class="icon-button call-button" aria-label="Call" title="Call" onclick="showCallService('Raphael', '3')">
+                                <i class="fa-solid fa-phone fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="icon-container">
+                            <button class="icon-button edit-button" aria-label="Edit" title="Edit" data-contact-id="3">
+                                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-info-details" data-contact-id="4" data-contact-name="Sophia" data-contact-phone="95640013" data-contact-relationship="Sibling">
+                        <div class="card-header">Sophia</div>
+                        <div class="card-desc">95640013</div>
+                    </div>
+                    <div class="card-actions">
+                        <div class="icon-container">
+                            <button class="icon-button call-button" aria-label="Call" title="Call" onclick="showCallService('Sophia', '4')">
+                                <i class="fa-solid fa-phone fa-lg"></i>
+                            </button>
+                        </div>
+                        <div class="icon-container">
+                            <button class="icon-button edit-button" aria-label="Edit" title="Edit" data-contact-id="4">
+                                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="call-service" style="display: none;">
+        <div class="call-heading" id="call-heading">Contact Name</div>
+        <div class="calling-status">Calling...</div>
+
+        <div class="call-icon-container">
+            <div class="call-icon icon-mute" aria-label="Mute" title="Mute" onclick="toggleMute()">
+                <i id="microphone-icon" class="fa-solid fa-microphone fa-2x"></i>
+            </div>            
+            <div class="call-icon icon-end-call" aria-label="End Call" title="End Call" onclick="endCall()">
+                <i class="fa-solid fa-phone fa-2x" style="transform: rotate(135deg);"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contact-details-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="subheading subheading-updateemergency">Update Emergency Contact</div>
+                <!-- <span class="close">&times;</span> -->
+            </div>
+            <div class="modal-body">
+                <form id="update-contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" class="form-control" id="contact-name" value="Dad">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-relationship">Relationship</label>
+                        <select class="form-control" id="contact-relationship">
+                            <option>Parent</option>
+                            <option>Sibling</option>
+                            <option>Spouse/Partner</option>
+                            <option>Child</option>
+                            <option>Guardian</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number</label>
+                        <input type="text" class="form-control" id="contact-phone" value="88120944">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-button">Cancel</button>
+                <button class="btn btn-primary" id="confirm-button">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/dark_light_mode_toggle.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../static/js/emergency_contacts.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/css/dashboard2.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBy-ZfAumiVOhrIG39Z5F6wivnQ5Ckoxk&libraries=maps,marker&v=beta" defer></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container d-flex justify-content-center">
+            <a class="nav-link" href="../pages/dashboard2.html"><i class="fa-solid fa-house" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/entertainment_options.html"><i class="fa-brands fa-spotify" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/car_health.html"><i class="fa-solid fa-heart-pulse" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/live_traffic.html"><i class="fa-solid fa-traffic-light" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/safety_and_emergency_services.html"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/personalisation.html"><i class="fa-solid fa-sliders" style="color: #000000;"></i></a>
+            <a class="nav-link" href="../pages/help.html"><i class="fa-solid fa-circle-question" style="color: #000000;"></i></a>
+        </div>
+    </nav>
+
+    <div id="header"></div>
+    <div class="card" style="width:100%;">
+        <div class="card-body">
+        
+            <div class="dashboard-left">
+                <div class="dateandtime">
+                    <h4 id="current_day_date" class="title"></h4>
+                    <h1 class="title">23°C</h1>
+
+                    <i class="fa-solid fa-battery-three-quarters" id="batteryicon"></i>
+                    <h5 class="batterylife" style="float:center; padding-top:5px;">80%</h5>
+
+                    <i class="fa-solid fa-wind" id="windicon"></i>
+                    <h5 class="batterylife" style="float:center; padding-top:5px; font-size: 18px;">Turned on</h5>
+                    
+                    <i class="fa-solid fa-car" id="caricon"></i>
+                    <h5 class="batterylife" style="float:center; padding-top:5px; font-size: 18px;">Auto Mode</h5>
+                </div>
+                <img src="../images/360view.png" class="img-fluid" lt="360view">
+
+            </div>
+
+            <div class="dashboard-right">
+                <form class="direction">
+                    <div>
+                        <div class="mb-3">
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6uPnrBgweGOcwjFL4ItAvV?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>                            
+                            <!-- <a href="../pages/entertainment_spotify.html" class="iframe-overlay"></a> -->
+                        </div> 
+                        
+                        <div class="alert alert-success" id="successalert" role="alert" style="display: none;">
+                            Please select which route you want to take!
+                        </div>
+
+                        <div class="mb-3" style="float:left;width:85%">
+                            <input class="form-control" id="destination" type="text" placeholder="Choose Destination">
+                        </div>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-primary" id="submitbtn" style="float:right;width:15%" onclick="submit()">Submit</button>
+                <button type="back" class="btn btn-danger" id="backbtn" style="display:none;width:15%" onclick="back()">Back</button>
+                <button type="confirm" class="btn btn-success" id="confirmbtn" style="display:none;width:15%" onclick="confirm()">Confirm</button>
+
+                <div id="map" class="map">
+                    <img src="../images/beforemap.png" class="img-fluid" id="beforemap" style="display:block;" alt="map">
+                    <img src="../images/map1.png" class="img-fluid" id="cheapmap" style="display:none;" alt="map">
+                    <img src="../images/map2.png" class="img-fluid" id="fastmap" style="display:none;" alt="map">
+                    <img src="../images/map3.png" class="img-fluid" id="congestedmap" style="display:none;" alt="map">
+                
+                    <img src="../images/1.png" class="img-fluid" id="cheapconfirmed" style="display:none;" alt="map">
+                    <img src="../images/2.png" class="img-fluid" id="fastconfirmed" style="display:none;" alt="map">
+                    <img src="../images/3.png" class="img-fluid" id="congestedconfirmed" style="display:none;" alt="map">
+                </div>
+    
+                <div class="list-group" style="display:none">
+                    <a href="javascript:cheapest()" class="list-group-item list-group-item-action" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Cheapest Route</h5>
+                    </div>
+                    <p class="mb-1">16 - 40 minutes</p>
+                    <small>(11.2 km)</small>
+                    </a>
+                    <a href="javascript:fastest()" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Fastest Route</h5>
+                    </div>
+                    <p class="mb-1">16 - 40 minutes</p>
+                    <small class="text-body-secondary">(15.1 km)</small>
+                    </a>
+                    <a href="javascript:leastCongested()" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Least Congested Road</h5>
+                    </div>
+                    <p class="mb-1">16 - 45 minutes</p>
+                    <small class="text-body-secondary">(14.9 km)</small>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="routeModal" tabindex="-1" role="dialog" aria-labelledby="routeModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="routeModalLabel">Confirm Your Route</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            You have selected: <strong id="routeNameSpan">[Route]</strong>. Confirm to proceed.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancel()">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="confirmRouteBtn">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="../static/js/dark_light_mode_toggle.js"></script>
+    <script src="../static/js/current_date_day.js"></script>
+
+    <script>
+        const maps = {
+            cheapest: document.querySelector('#cheapmap'),
+            fastest: document.querySelector('#fastmap'),
+            congested: document.querySelector('#congestedmap'),
+        };
+
+        const confirmedmaps = {
+            cheapest: document.querySelector('#cheapconfirmed'),
+            fastest: document.querySelector('#fastconfirmed'),
+            congested: document.querySelector('#congestedconfirmed'),
+        };
+
+        const map = document.querySelector('#map');
+        const beforemap = document.querySelector('#beforemap');
+        const listgroup = document.querySelector('.list-group');
+        const submitbtn = document.querySelector('#submitbtn');
+        const backbtn = document.querySelector('#backbtn');
+        const confirmbtn = document.querySelector('#confirmbtn');
+        const destination = document.querySelector('#destination'); 
+        const successalert = document.querySelector('#successalert');
+
+        let routechosen = null;
+
+        function validateInput() 
+        {
+            if (destination.value.trim() === "") {
+                submitbtn.disabled = true; 
+            } else {
+                submitbtn.disabled = false; 
+            }
+        }
+
+        destination.addEventListener('input', validateInput);
+
+        validateInput();
+    
+        function toggleDisplay(element, show) {
+            element.style.display = show ? "block" : "none";
+        }
+    
+        function submit() {
+            if (submitbtn.disabled) {
+                alert("Please fill in the required input before submitting.");
+                return;
+            }
+
+            destination.disabled = true;
+
+            successalert.style.display = "block";
+
+            toggleDisplay(map, false);
+            toggleDisplay(beforemap, false);
+            toggleDisplay(listgroup, true);
+            toggleDisplay(submitbtn, false);
+            toggleDisplay(backbtn, true);
+        }
+    
+        function back() {
+            successalert.style.display = "none";
+
+            destination.disabled = false;
+
+            toggleDisplay(map, true);
+            toggleDisplay(beforemap, true);
+            toggleDisplay(listgroup, false);
+            toggleDisplay(submitbtn, true);
+            toggleDisplay(backbtn, false);
+            resetMaps();
+        }
+        
+        function cancel() {
+            successalert.style.display = "none";
+
+            toggleDisplay(listgroup, true);
+            toggleDisplay(submitbtn, false);
+            toggleDisplay(backbtn, true);
+            toggleDisplay(confirmbtn, false);
+            resetMaps();
+        }
+
+        function confirm() {
+            $('#routeModal').modal('show'); 
+        }
+    
+        function resetMaps() {
+            Object.values(maps).forEach((map) => toggleDisplay(map, false));
+            Object.values(confirmedmaps).forEach((map) => toggleDisplay(map, false));
+        }
+    
+        const routeNameSpan = document.querySelector('#routeNameSpan'); 
+        const confirmRouteBtn = document.querySelector('#confirmRouteBtn'); 
+
+        function selectRoute(route) {
+            let routeName = route === 'congested' ? 'Least Congested' : route.charAt(0).toUpperCase() + route.slice(1);
+
+            successalert.textContent = "Route chosen: " + routeName + ", please confirm your route!";
+            successalert.style.display = "block";
+
+            selectedRoute = route;
+            
+            routeNameSpan.textContent = 
+                route === 'congested' ? 'Least Congested' : // Handle 'congested' display
+                route.charAt(0).toUpperCase() + route.slice(1); // Capitalize other route names
+
+            resetMaps();
+            toggleDisplay(map, true);
+            toggleDisplay(maps[selectedRoute], true); 
+            toggleDisplay(listgroup, false);
+            toggleDisplay(submitbtn, false);
+            toggleDisplay(backbtn, false);
+            toggleDisplay(confirmbtn, true);
+            routechosen = selectedRoute; 
+        }
+
+        function confirmRoute() {
+            let routeName = selectedRoute === 'congested' ? 'Least Congested' : selectedRoute.charAt(0).toUpperCase() + selectedRoute.slice(1);
+
+            successalert.textContent = routeName + " route confirmed!";
+            successalert.style.display = "block";
+            
+            $('#routeModal').modal('hide');
+            toggleDisplay(maps[selectedRoute], false); 
+            toggleDisplay(confirmedmaps[selectedRoute], true); 
+            toggleDisplay(backbtn, true);
+            toggleDisplay(confirmbtn, false);
+        }
+
+        confirmRouteBtn.addEventListener('click', confirmRoute);
+    
+        function cheapest() {
+            selectRoute('cheapest');
+        }
+    
+        function fastest() {
+            selectRoute('fastest');
+        }
+    
+        function leastCongested() {
+            selectRoute('congested');
+        }
+    </script>
+    
+</body>
+</html>

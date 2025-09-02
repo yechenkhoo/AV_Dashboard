@@ -1,0 +1,167 @@
+body {
+    color: white;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+body.dark-mode h1 {
+    color: white;
+    margin-bottom: 24px;
+}
+
+body.light-mode h1 {
+    color: black;
+    margin-bottom: 24px;
+}
+
+#successalert {
+    width:100%;
+    color: white;
+}
+
+.dashboard-left {
+    float: left;
+    width: 30%;
+    padding: 19px;
+}
+
+.dashboard-right {
+    float: right;
+    width: 70%;
+    margin-top: 20px;
+    height: auto;
+}
+
+#batteryicon {
+    color: #2dcf2a;
+    font-size: 30px; 
+    float:left; 
+    padding-right: 10px;
+}
+
+#windicon, #caricon {
+    font-size: 20px; 
+    float:left; 
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+#caricon {
+    color: #6bdce0;
+    font-size: 20px; 
+    float:left; 
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+body.dark-mode #windicon {
+    color: white; 
+}
+
+body.light-mode #windicon {
+    color: black;
+}
+
+.dateandtime {
+    margin: 20px;
+    padding-bottom: 10px;
+}
+
+#spotify {
+    position: relative;
+}
+
+body.dark-mode .iframe-overlay {
+    position: absolute;
+    top: 500;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0); /* Transparent */
+}
+
+.card {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 24px;
+}
+
+.card-body {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.map {
+    position: relative;
+    margin-top: 20px;
+    width: 100% !important;
+    height: auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.map .btn {
+    position: absolute;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 16px;
+    padding: 12px 28px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin:5px;
+  }
+
+.list-group {
+    margin-top: 24px;
+    color: black;
+}
+
+.submitbtn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+#routeModal {
+    margin-top: 24px;
+    color: rgb(94, 94, 94);
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
